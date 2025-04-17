@@ -6,7 +6,7 @@ export default function Home() {
     <main style={{ padding: 40 }}>
       <h1>🕯️ Chatbot tư vấn nến thơm</h1>
       <ChatBox />
-      <MessengerChat />
+      {/* <MessengerChat /> */}
     </main>
   );
 }
