@@ -4,27 +4,22 @@ export async function POST(req) {
   const body = await req.json();
   const message = body.message;
 
-  const productData = [
-    {
-      name: "Nến Lavender",
-      scent: "Oải hương",
-      purpose: "Thư giãn",
-      notes: "Lavender, gỗ tuyết tùng",
-    },
-    {
-      name: "Nến Vanilla",
-      scent: "Vanilla ngọt ngào",
-      purpose: "Ấm cúng",
-      notes: "Vanilla, quế",
-    },
-  ];
+  const userData = {
+    // ✨ Ví dụ dữ liệu người dùng (có thể lấy từ form client)
+    nickname: "Linh",
+    goal: "Hoàn thành half-marathon < 2 giờ",
+    targetDistancePerDayKm: 8, // quãng chạy trung bình mong muốn mỗi ngày
+    currentWeeklyMileageKm: 35, // thực tế
+    preferredSurface: "Đường bê tông",
+    raceDate: "2025-09-07",
+  };
 
   const prompt = `
-Bạn là một chuyên gia tư vấn nến thơm.
-Danh sách sản phẩm: ${JSON.stringify(productData)}.
-Khách hàng nói: "${message}".
-Hãy tư vấn một cách ngắn gọn và thân thiện.
-`;
+Bạn là một huấn luyện viên chạy bộ giàu kinh nghiệm.
+Thông tin người chạy: ${JSON.stringify(userData)}.
+Người dùng hỏi: "${message}".
+Hãy tư vấn ngắn gọn, súc tích, thân thiện, có thể gợi ý cường độ, dinh dưỡng hoặc phụ kiện phù hợp.
+  `;
 
   try {
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {

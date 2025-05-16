@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function ChatBox() {
   const [messages, setMessages] = useState([
-    { role: "bot", content: "Xin chào! Bạn đang tìm loại nến như thế nào?" },
+    { role: "bot", content: "Xin chào! Bạn đang quan tâm gì về chạy bộ?" },
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
